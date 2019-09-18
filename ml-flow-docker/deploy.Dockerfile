@@ -15,6 +15,4 @@ RUN conda install -c conda-forge psycopg2 -y
 RUN mkdir /mlflow/
 WORKDIR /mlflow
 
-COPY deploy.sh /mlflow
-
 CMD mlflow models serve -m /mlflow/$PROJECT_ID/$MODEL_ID/artifacts/model -h 0.0.0.0 -p 1234
