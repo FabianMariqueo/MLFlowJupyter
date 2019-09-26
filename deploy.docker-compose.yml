@@ -12,3 +12,13 @@ services:
       - "1234:1234"
     volumes:
       - ./ml-flow-docker/data:/mlflow
+
+  proxy-mlflow:
+    build:
+      context: ./ml-flow-docker
+      dockerfile: proxy.Dockerfile
+    command: "python3 proxy-mlflow.py"
+    ports:
+      - "8090:8090"
+    links:
+      - mlflow-deploy

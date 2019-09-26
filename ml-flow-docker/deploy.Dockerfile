@@ -16,3 +16,9 @@ RUN mkdir /mlflow/
 WORKDIR /mlflow
 
 CMD mlflow models serve -m /mlflow/$PROJECT_ID/$MODEL_ID/artifacts/model -h 0.0.0.0 -p 1234
+
+#ADD proxy-mlflow.py proxy-mlflow.py
+#CMD python mlflow-proxy.py
+#ENTRYPOINT ["python3"]
+#CMD ["python3","proxy-mlflow.py"]
+#RUN python /mlflow/proxy_mlflow.py
