@@ -21,7 +21,6 @@ services:
     user: root:root
     ports:
       - "5000:5000"
-      - "1234:1234"
     volumes:
       - ./ml-flow-docker/data:/mlflow
     depends_on: 
