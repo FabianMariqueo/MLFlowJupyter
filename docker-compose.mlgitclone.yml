@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  mlflow-git:
+    build: 
+      context: ./mlflow-github
+      dockerfile: gitclone.Dockerfile
+      args:
+        - GIT_TOKEN=ujGaAxaLqf6LXywK7s_G
+        - URL_GIT=https://oauth2:ujGaAxaLqf6LXywK7s_G@gitlab.com/FabianMariqueo/wine-mlflow.git
+    user: root:root
+    command: bash -c "git pull && python3 mlflow_run.py && chmod +x /mlflow/mlflow_run.txt && eval $$(/mlflow/mlflow_run.txt)"
+    ports:
+      - 1234:1234

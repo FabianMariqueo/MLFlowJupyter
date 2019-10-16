@@ -1,0 +1,7 @@
+version: '3'
+services:
+  mlflow-git:
+    build: ./mlflow-github
+    command: bash -c "mlflow run https://oauth2:ujGaAxaLqf6LXywK7s_G@gitlab.com/FabianMariqueo/wine-mlflow.git && chmod +x /mlflow/mlflow_run.txt && eval $$(/mlflow/mlflow_run.txt)"
+    ports:
+      - 1234:1234
